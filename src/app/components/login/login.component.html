@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="container">
+    <div class="center">
+        <h1>Login</h1>
+    </div>
+    
+    <form [formGroup]="formUser">
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nombre de usuario: </label>
+            <div class="col-sm-10 mb-2">
+              <input type="text" formControlName="username" class="form-control">
+                <div class="alert alert-danger mt-2" [hidden]="formUser.get('username')?.valid || formUser.get('username')?.pristine">
+                    El nombre de usuario es obligatorio.
+                </div>
+            </div>
+          
+            <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña: </label>
+            <div class="col-sm-10 mb-2">
+              <input type="password" formControlName="password" class="form-control" id="inputPassword">
+              <div class="alert alert-danger mt-2" [hidden]="formUser.get('password')?.valid || formUser.get('password')?.pristine">
+                La contraseña es obligatoria.
+            </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="login()">
+            Ingresar
+        </button>
+    </form>
+</div>
+
